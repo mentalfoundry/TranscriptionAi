@@ -12,8 +12,10 @@ openai.organization = os.getenv("OPENAI_ORGANIZATION")
 openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.Model.list()
 
-audio_folder_path = "" #filepath to .mp3 directory aka 'c:/music/'
+audio_folder_path = "" #filepath to .mp3 directory aka 'C:/music/'
 audio_file_name = "" #name of mp3 file without .mp3 aka for cool.mp3 just use 'cool'
+audio_language = "en" #language to process file in. https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+ai_prompt = "" #additional prompt for context to Whisper. Be creative.
 
 def get_segment_times(audio_path, segment_length):
     # Open the audio file
@@ -60,8 +62,8 @@ def transcribe_audio(audio_path, srt_filename):
     data = {
         'model': 'whisper-1',
         'response_format': 'srt',
-        'prompt': 'doujinshi',
-        'language': 'ja', #not for translations
+        'prompt': ai_prompt,
+        'language': audio_language, #not for translations
     }
     files = {
         'file': ('audio.mp3', open(audio_path, 'rb'))
