@@ -1,6 +1,13 @@
 # TranscriptionAi
  Helps feed files to whisperAI in a free way
 
+# Installation instructions
+1. Install ffmpeg as its a key dependency and make sure its added to your environment variables.
+2. Restart your machine :)
+3. Install missing python dependencies with py -m pip install PACKAGE_NAME 
+You will need the following: pydub, openai, load_dotenv, pysrt
+
+
 # How to use this script
 1. Use VLC or similar to convert your .mp4 file into an .mp3
 2. Fill in the location fields near the top of the script in trans.py for files less than 20min or use full.py for longer .mp3s
